@@ -282,10 +282,7 @@ public class Ordering2 extends javax.swing.JFrame {
 
         jLblImage.setBackground(new java.awt.Color(236, 236, 236));
         jLblImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLblImage.setMaximumSize(new java.awt.Dimension(2, 2));
-        jLblImage.setMinimumSize(new java.awt.Dimension(2, 2));
         jLblImage.setOpaque(true);
-        jLblImage.setPreferredSize(new java.awt.Dimension(2, 2));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel10.setText("Product Code");
@@ -634,13 +631,16 @@ public class Ordering2 extends javax.swing.JFrame {
                     .addComponent(jTextFieldGst, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelGST1)
-                    .addComponent(jTextFieldOverallTot, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonOrderView)
-                    .addComponent(jButtonReset)
-                    .addComponent(jButtonBack))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabelGST1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonReset)
+                            .addComponent(jButtonBack)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jTextFieldOverallTot, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonOrderView)))
                 .addContainerGap())
         );
 
@@ -749,6 +749,24 @@ public class Ordering2 extends javax.swing.JFrame {
 
     private void jButtonOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderViewActionPerformed
         // TODO add your handling code here:
+         String UpdateQuery = null;
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        try {
+             String pcode = jTextFieldProductCode.getText();
+             int  nquantity = Integer.parseInt(jTextFieldQty.getText());
+             int oldquantity =Integer.parseInt(jTextFieldProductQuantity.getText());
+             int newquan = oldquantity - nquantity;
+
+            UpdateQuery = "UPDATE products SET ProductQuantity =? WHERE ProductCode =?";
+            ps = con.prepareStatement(UpdateQuery);
+            ps.setDouble(1, newquan);
+            ps.setString(2, pcode);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+
+        }
         ViewOrder v = new ViewOrder();
 
         ViewOrder.jLabelCustName.setText(this.jTextFieldCustName.getText());
@@ -945,13 +963,6 @@ public class Ordering2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAddress;
     private javax.swing.JLabel jLabelCustName;
@@ -970,13 +981,6 @@ public class Ordering2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButtonCOD;
     private javax.swing.JRadioButton jRadioButtonOnlineBanking;
@@ -985,12 +989,12 @@ public class Ordering2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTableProductsDetail;
-    private javax.swing.JTextArea jTextAreaAddress;
-    private javax.swing.JTextArea jTextAreaSummary;
-    private javax.swing.JTextField jTextFieldCustName;
-    private javax.swing.JLabel jTextFieldGst;
+    public static javax.swing.JTextArea jTextAreaAddress;
+    public static javax.swing.JTextArea jTextAreaSummary;
+    public static javax.swing.JTextField jTextFieldCustName;
+    public static javax.swing.JLabel jTextFieldGst;
     private javax.swing.JLabel jTextFieldItem;
-    private javax.swing.JLabel jTextFieldOverallTot;
+    public static javax.swing.JLabel jTextFieldOverallTot;
     private javax.swing.JLabel jTextFieldPrice;
     private javax.swing.JTextField jTextFieldProductCode;
     private javax.swing.JTextField jTextFieldProductName;
@@ -998,7 +1002,7 @@ public class Ordering2 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldProductQuantity;
     private javax.swing.JTextField jTextFieldProductSearch;
     private javax.swing.JTextField jTextFieldQty;
-    private javax.swing.JLabel jTextFieldSubTotal;
+    public static javax.swing.JLabel jTextFieldSubTotal;
     private javax.swing.JTextField jTxtBrand;
     // End of variables declaration//GEN-END:variables
 }

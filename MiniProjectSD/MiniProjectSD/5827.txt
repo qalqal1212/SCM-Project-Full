@@ -1,0 +1,17 @@
+Receipt no    : 05411
+Customer Name :fatin
+Address       :fatin
+Date          :2017/11/18 15:53:29
+
+-------------------------------------------------------------------------------------------------
+Your order    : 
+
+Nike Air Uptempo      : RM800.00	  x  4.0	Size :1		 Total Price : RM  3200.00	
+Asics Gel Nimbus      : RM699.99	  x  1.0	Size :7		 Total Price : RM  699.99	
+Adidas Yeezy Boost    : RM800.00	  x  4.0	Size :7		 Total Price : RM  3207.90	Online Banking :RM7.90
+Adidas Yeezy Boost    : RM800.00	  x  6.0	Size :1		 Total Price : RM  4800.00	
+-------------------------------------------------------------------------------------------------
+
+subtotal      :4800.00
+tax 5%        :288.00
+total         :5088.00

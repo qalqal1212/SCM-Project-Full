@@ -1,0 +1,15 @@
+Receipt no    : 83091
+Customer Name :da
+Address       :qw
+Date          :2017/11/18 15:29:01
+
+-------------------------------------------------------------------------------------------------
+Your order    : 
+
+Nike Air Uptempo      : RM800.00	  x  2.0	Size :1		 Total Price : RM  1605.00	Cash-On-Delivery : RM5.00 
+Adidas ZX Flux        : RM400.00	  x  1.0	Size :3		 Total Price : RM  405.00	Cash-On-Delivery : RM5.00 
+-------------------------------------------------------------------------------------------------
+
+subtotal      :2010.00
+tax 5%        :120.60
+total         :2130.60
