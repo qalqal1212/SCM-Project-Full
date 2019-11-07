@@ -176,7 +176,6 @@ public class ProductCatalog extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableProdCat = new javax.swing.JTable();
         jLabelBack = new javax.swing.JLabel();
-        jButtonPrintProdCatAdmin = new javax.swing.JButton();
         jButtonPrintProdCatAdmin1 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -256,17 +255,6 @@ public class ProductCatalog extends javax.swing.JFrame {
         jPanel7.add(jLabelBack);
         jLabelBack.setBounds(20, 290, 50, 50);
 
-        jButtonPrintProdCatAdmin.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        jButtonPrintProdCatAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/print.png"))); // NOI18N
-        jButtonPrintProdCatAdmin.setText("Print Catalog");
-        jButtonPrintProdCatAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrintProdCatAdminActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButtonPrintProdCatAdmin);
-        jButtonPrintProdCatAdmin.setBounds(360, 290, 160, 40);
-
         jButtonPrintProdCatAdmin1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         jButtonPrintProdCatAdmin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Edit_Property_25px.png"))); // NOI18N
         jButtonPrintProdCatAdmin1.setText("Records");
@@ -336,27 +324,13 @@ public class ProductCatalog extends javax.swing.JFrame {
     private void jMenuHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuHomeActionPerformed
         // TODO add your handling code here:
         new MainPage().setVisible(true);
+       
     }//GEN-LAST:event_jMenuHomeActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         findProduct();
     }//GEN-LAST:event_jButtonSearchActionPerformed
-
-    private void jButtonPrintProdCatAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintProdCatAdminActionPerformed
-        // TODO add your handling code here:
-        MessageFormat header = new MessageFormat("Products Catalog");
-        MessageFormat footer = new MessageFormat("Page {0,number,integer}");
-        
-        try 
-        {
-            jTableProdCat.print(JTable.PrintMode.NORMAL, header, footer);
-        }
-        catch (java.awt.print.PrinterException e)
-        {
-            System.err.format("Cannot print %s%n", e.getMessage());
-        }
-    }//GEN-LAST:event_jButtonPrintProdCatAdminActionPerformed
 
     private void jLabelBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBackMouseClicked
         // TODO add your handling code here:
@@ -401,13 +375,13 @@ public class ProductCatalog extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ProductCatalog().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
-    private javax.swing.JButton jButtonPrintProdCatAdmin;
     private javax.swing.JButton jButtonPrintProdCatAdmin1;
     private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel2;
